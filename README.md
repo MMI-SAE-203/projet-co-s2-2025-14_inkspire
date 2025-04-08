@@ -17,7 +17,6 @@
 
 | Étudiants    | Prénom NOM  |
 | :----------- | :---------- |
-| Étudiant 1   | à compléter |
+| Étudiant 1   | Manolia KOCAOGLU |
 | Étudiant 2   | Eva LACROIX |
-| Étudiant 3   | à compléter |
-| (Étudiant 4) | à compléter |
+| Étudiant 3   | Victor LANDWERLIN |
