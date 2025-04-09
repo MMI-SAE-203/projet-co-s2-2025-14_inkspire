@@ -1,15 +1,17 @@
 ---
-import LogoTest from "../assets/icons/logo.svg";
+import Logo from "../assets/icons/logo.svg";
 
-import ButtonTransp from "../components/Button_transp.astro";
+import Button from "../components/Button.astro";
 ---
 
 <header
   class="px-4 fixed z-20 w-full flex items-center justify-between top-0 bg-black"
 >
-  <!-- <div>
-    <a href="/"><LogoTest /></a>
-  </div> -->
+  <div>
+    <a href="/">
+      <Logo width="84" height="59" />
+    </a>
+  </div>
   <div>
     <button
       id="menu-btn"
@@ -28,27 +30,28 @@ import ButtonTransp from "../components/Button_transp.astro";
     </button>
     <nav
       id="menu"
-      class="fixed bg-black inset-0 text-white text-xl z-10 max-lg:aria-hidden:invisible visible lg:bg-transparent lg:relative lg:text-white lg:text-xl uppercase"
+      class="fixed bg-black inset-0 text-white text-xl z-10 max-lg:aria-hidden:invisible visible lg:bg-transparent lg:relative lg:text-white lg:text-xl"
       aria-hidden="true"
     >
       <ul
-        class="font-Nosifer mt-20 mx-8 lg:m-0 lg:flex *:relative *:overflow-hidden *:lg:before:absolute *:lg:before:bottom-0 *:lg:before:left-0 *:lg:before:h-2 *:lg:before:w-full *:lg:before:translate-y-2 *:lg:before:bg-black *:lg:before:transition-all *:lg:before:duration-300 *:lg:before:ease-in-out lg:gap-8"
+        class="font-nosifer mt-20 mx-8 lg:m-0 lg:flex *:relative *:overflow-hidden *:lg:before:absolute *:lg:before:bottom-0 *:lg:before:left-0 *:lg:before:h-2 *:lg:before:w-full *:lg:before:translate-y-2 *:lg:before:bg-black *:lg:before:transition-all *:lg:before:duration-300 *:lg:before:ease-in-out lg:gap-8"
       >
         <li><a class="block pb-12" href="/styles">Explorer les styles</a></li>
-        <li><a class="block pb-12" href="/ia">Acceder à l’ia</a></li>
+        <li><a class="block pb-12" href="/ai">Acceder à l’ia</a></li>
         <li>
-          <a class="block pb-12" href="/a_propos">À propos</a>
+          <a class="block pb-12" href="/about">À propos</a>
         </li>
         <li>
           <a class="block pb-12" href="/faq">FAQ</a>
         </li>
         <li><a class="block pb-12" href="/contact">Contact</a></li>
         <li>
-          <a class="block" href="/tatoueur">Trouver mon tatoueur</a>
+          <a class="block" href="/tattoo_artist">Trouver mon tatoueur</a>
         </li>
       </ul>
-      <div class="flex flex-col items-center gap-2 not-lg:mt-4">
-        <ButtonTransp text="En savoir plus" url="/a_propos" />
+      <div class="flex flex-col items-center gap-4 not-lg:mt-20">
+        <Button variant="stroke" text="Se connecter" url="/login" />
+        <Button variant="plain" text="S'inscrire" url="/signup" />
       </div>
     </nav>
   </div>
