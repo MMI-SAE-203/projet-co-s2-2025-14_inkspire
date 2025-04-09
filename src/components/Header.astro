@@ -1,5 +1,7 @@
 ---
 import LogoTest from "../assets/icons/logo.svg";
+
+import ButtonTransp from "../components/Button_transp.astro";
 ---
 
 <header
@@ -26,41 +28,28 @@ import LogoTest from "../assets/icons/logo.svg";
     </button>
     <nav
       id="menu"
-      class="fixed bg-black inset-0 text-white text-xl z-10 max-lg:aria-hidden:invisible visible lg:bg-transparent lg:relative lg:text-white lg:text-xl uppercase font-Nosifer"
+      class="fixed bg-black inset-0 text-white text-xl z-10 max-lg:aria-hidden:invisible visible lg:bg-transparent lg:relative lg:text-white lg:text-xl uppercase"
       aria-hidden="true"
     >
       <ul
-        class="mt-20 mx-8 lg:m-0 lg:flex *:relative *:overflow-hidden *:lg:before:absolute *:lg:before:bottom-0 *:lg:before:left-0 *:lg:before:h-2 *:lg:before:w-full *:lg:before:translate-y-2 *:lg:before:bg-black *:lg:before:transition-all *:lg:before:duration-300 *:lg:before:ease-in-out lg:gap-8"
+        class="font-Nosifer mt-20 mx-8 lg:m-0 lg:flex *:relative *:overflow-hidden *:lg:before:absolute *:lg:before:bottom-0 *:lg:before:left-0 *:lg:before:h-2 *:lg:before:w-full *:lg:before:translate-y-2 *:lg:before:bg-black *:lg:before:transition-all *:lg:before:duration-300 *:lg:before:ease-in-out lg:gap-8"
       >
-        <li><a class="block py-4" href="/a_propos">À Propos</a></li>
-        <li><a class="block py-4" href="/programme">Programme</a></li>
+        <li><a class="block pb-12" href="/styles">Explorer les styles</a></li>
+        <li><a class="block pb-12" href="/ia">Acceder à l’ia</a></li>
         <li>
-          <a class="block py-4" href="/films">Films</a>
+          <a class="block pb-12" href="/a_propos">À propos</a>
         </li>
         <li>
-          <a class="block py-4" href="/activites">Activités</a>
+          <a class="block pb-12" href="/faq">FAQ</a>
         </li>
-        <li><a class="block py-4" href="/invites">Invités</a></li>
+        <li><a class="block pb-12" href="/contact">Contact</a></li>
         <li>
-          <a class="block py-4" href="/infos_pratiques">Infos Pratiques</a>
+          <a class="block" href="/tatoueur">Trouver mon tatoueur</a>
         </li>
-        <li><a class="block py-4" href="/contact">Contact</a></li>
-        <li><a class="block py-4" href="/billeterie">Billeterie</a></li>
-        <div class="flex gap-2 not-lg:mt-10">
-          <a
-            href="/signup"
-            class="px-4 py-2 bg-rose text-white rounded-full text-sm font-semibold shadow-md hover:bg-rose-degrade transition flex items-center justify-center"
-          >
-            S'inscrire
-          </a>
-          <a
-            href="/login"
-            class="px-4 py-2 bg-cyan-600 text-white rounded-full text-sm font-semibold shadow-md hover:bg-cyan-400/40 transition flex items-center justify-center"
-          >
-            Connexion
-          </a>
-        </div>
       </ul>
+      <div class="flex flex-col items-center gap-2 not-lg:mt-4">
+        <ButtonTransp text="En savoir plus" url="/a_propos" />
+      </div>
     </nav>
   </div>
 </header>

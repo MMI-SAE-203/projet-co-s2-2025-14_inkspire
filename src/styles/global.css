@@ -7,6 +7,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'MontserratAlteExtraBold';
+    src: url('/src/assets/fonts/MontserratAlternates-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
 @theme {
     /*couleurs et autres polices... */
     --font-Nosifer: 'Nosifer', sans-serif;
