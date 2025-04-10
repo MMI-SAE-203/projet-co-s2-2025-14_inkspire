@@ -1,0 +1,100 @@
+---
+import Logo from "../assets/icons/logo.svg";
+import Button from "../components/Button.astro";
+import { Image } from "astro:assets";
+
+import GoutteGauche from "../assets/img/gouttes_gauches_lp.webp";
+import GoutteDroite from "../assets/img/gouttes_droites_lp.webp";
+---
+
+<header class="relative w-full bg-black text-white z-20">
+  <div class="absolute top-0 left-0 z-10 hidden lg:block">
+    <Image src={GoutteGauche} alt="Goutte Gauche" class="w-[131px] h-auto" />
+  </div>
+  <div class="absolute top-0 right-0 z-10 hidden lg:block">
+    <Image src={GoutteDroite} alt="Goutte Gauche" class="w-[151px] h-auto" />
+  </div>
+
+  <div
+    class="flex items-center justify-between px-6 pt-9 lg:pl-36 lg:pr-36 lg:gap-10"
+  >
+    <a href="/">
+      <Logo class="scale-200" />
+    </a>
+
+    <div>
+      <button
+        id="menu-btn"
+        class="group relative z-20 flex h-3 w-6 flex-col justify-between lg:hidden *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-white *:transition *:duration-300"
+        aria-label="Menu"
+        aria-controls="menu"
+        aria-expanded="false"
+      >
+        <span
+          class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"
+        ></span>
+        <span class="group-aria-expanded:opacity-0"></span>
+        <span
+          class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"
+        ></span>
+      </button>
+
+      <nav
+        id="menu"
+        class="fixed bg-black inset-0 text-white text-xl z-10 max-lg:aria-hidden:invisible visible lg:bg-transparent lg:relative lg:text-white lg:text-xl"
+        aria-hidden="true"
+      >
+        <div class="flex flex-col items-center gap-4 not-lg:mt-20 lg:flex-row lg:gap-8 lg:items-center lg:justify-between lg:py-6 lg:px-8">
+          <ul
+            class="lg:items-center font-nosifer mt-20 mx-8 lg:m-0 lg:flex *:relative *:overflow-hidden *:lg:before:absolute *:lg:before:bottom-0 *:lg:before:left-0 *:lg:before:h-2 *:lg:before:w-full *:lg:before:translate-y-2 *:lg:before:bg-black *:lg:before:transition-all *:lg:before:duration-300 *:lg:before:ease-in-out lg:gap-7 lg:text-base"
+          >
+            <li>
+              <a class="block" href="/about">À propos</a>
+            </li>
+            <li>
+              <a class="block" href="/faq">FAQ</a>
+            </li>
+            <li>
+              <a class="block" href="/contact">Contact</a>
+            </li>
+            <li>
+              <a class="block" href="/legales">Mentions légales</a>
+            </li>
+          </ul>
+          <div class="flex gap-4">
+            <a
+              href="/login"
+              class="flex items-center justify-center w-48 px-4 py-6 gap-2.5 border-2 rounded-xl border-neutral-600 text-white font-montserrat_alt text-base transition lg:py-2 lg:px-2"
+              >Se connecter
+            </a>
+            <a
+              href="/signup"
+              class="flex items-center justify-center w-48 px-4 py-6 gap-2.5 border-2 rounded-xl border-neutral-600 bg-neutral-600 text-white font-montserrat_alt text-base transition lg:py-2 lg:px-2"
+              >Créer un compte
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <script>
+    // On cible les éléments à modifier
+    const toggle = document.querySelector("#menu-btn");
+    const nav = document.querySelector("#menu");
+    const page = document.body;
+
+    // Vérifier si les éléments existent avant d'ajouter l'événement
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        const isOpen = toggle.ariaExpanded === "true";
+        const isClosed = !isOpen;
+        console.log(isOpen, isClosed);
+        // Mise à jour des attributs ARIA pour accessibilité
+        toggle.ariaExpanded = String(isClosed);
+        nav.ariaHidden = String(isOpen);
+        page.classList.toggle("noscroll", isClosed);
+      });
+    }
+  </script>
+</header>
