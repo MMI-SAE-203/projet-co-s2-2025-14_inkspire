@@ -41,8 +41,8 @@ import GoutteDroite from "../assets/img/gouttes_droites_lp.webp";
 
       <nav
         id="menu"
-        class="fixed bg-black inset-0 text-white text-xl lg:text-sm z-10 max-lg:aria-hidden:invisible visible lg:bg-transparent lg:relative lg:text-white lg:text-xl"
-        aria-hidden="true"
+        class="fixed bg-black inset-0 text-white text-xl z-10 max-lg:aria-hidden:invisible visible lg:bg-transparent lg:relative lg:text-white lg:text-xl"
+        aria-hidden=""
       >
         <div
           class="flex flex-col not-lg:mt-20 lg:flex-row lg:items-center lg:justify-between lg:py-6 lg:px-8"
@@ -50,17 +50,17 @@ import GoutteDroite from "../assets/img/gouttes_droites_lp.webp";
           <ul
             class="lg:items-center font-nosifer mt-20 mx-8 lg:m-0 lg:flex lg:text-base *:relative *:overflow-hidden *:lg:before:absolute *:lg:before:bottom-0 *:lg:before:left-0 *:lg:before:h-2 *:lg:before:w-full *:lg:before:translate-y-2 *:lg:before:bg-black *:lg:before:transition-all *:lg:before:duration-300 *:lg:before:ease-in-out"
           >
-            <li>
-              <a class=" pb-12 lg:pb-0 lg:px-10" href="/about">À propos</a>
+            <li class="mb-12 lg:mb-0 lg:px-10">
+              <a href="/about">À propos</a>
             </li>
-            <li>
-              <a class=" pb-12 lg:pb-0 lg:px-10" href="/faq">FAQ</a>
+            <li class="mb-12 lg:mb-0 lg:px-10">
+              <a href="/faq">FAQ</a>
             </li>
-            <li>
-              <a class=" pb-12 lg:pb-0 lg:px-10" href="/contact">Contact</a>
+            <li class="mb-12 lg:mb-0 lg:px-10">
+              <a href="/contact">Contact</a>
             </li>
-            <li>
-              <a class="block lg:px-10" href="/legales">Mentions légales</a>
+            <li class="mb-12 lg:mb-0 lg:px-10">
+              <a href="/legales">Mentions légales</a>
             </li>
           </ul>
         </div>
@@ -68,23 +68,22 @@ import GoutteDroite from "../assets/img/gouttes_droites_lp.webp";
     </div>
   </div>
 </header>
-  <script>
-    // On cible les éléments à modifier
-    const toggle = document.querySelector("#menu-btn");
-    const nav = document.querySelector("#menu");
-    const page = document.body;
+<script>
+  // On cible les éléments à modifier
+  const toggle = document.querySelector("#menu-btn");
+  const nav = document.querySelector("#menu");
+  const page = document.body;
 
-    // Vérifier si les éléments existent avant d'ajouter l'événement
-    if (toggle && nav) {
-      toggle.addEventListener("click", () => {
-        const isOpen = toggle.ariaExpanded === "true";
-        const isClosed = !isOpen;
-        console.log(isOpen, isClosed);
-        // Mise à jour des attributs ARIA pour accessibilité
-        toggle.ariaExpanded = String(isClosed);
-        nav.ariaHidden = String(isOpen);
-        page.classList.toggle("noscroll", isClosed);
-      });
-    }
-  </script>
-
+  // Vérifier si les éléments existent avant d'ajouter l'événement
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.ariaExpanded === "true";
+      const isClosed = !isOpen;
+      console.log(isOpen, isClosed);
+      // Mise à jour des attributs ARIA pour accessibilité
+      toggle.ariaExpanded = String(isClosed);
+      nav.ariaHidden = String(isOpen);
+      page.classList.toggle("noscroll", isClosed);
+    });
+  }
+</script>
