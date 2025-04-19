@@ -1,6 +1,5 @@
 ---
 import Logo from "../assets/icons/logo.svg";
-import Button from "../components/Button.astro";
 import { Image } from "astro:assets";
 
 import GoutteGauche from "../assets/img/gouttes_gauches_lp.webp";
@@ -42,13 +41,13 @@ import GoutteDroite from "../assets/img/gouttes_droites_lp.webp";
       <nav
         id="menu"
         class="fixed bg-black inset-0 text-white text-xl z-10 max-lg:aria-hidden:invisible visible lg:bg-transparent lg:relative lg:text-white lg:text-xl"
-        aria-hidden=""
+        aria-hidden="true"
       >
         <div
-          class="flex flex-col not-lg:mt-20 lg:flex-row lg:items-center lg:justify-between lg:py-6 lg:px-8"
+          class="flex flex-col not-lg:mt-20 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:mt-20"
         >
           <ul
-            class="lg:items-center font-nosifer mt-20 mx-8 lg:m-0 lg:flex lg:text-base *:relative *:overflow-hidden *:lg:before:absolute *:lg:before:bottom-0 *:lg:before:left-0 *:lg:before:h-2 *:lg:before:w-full *:lg:before:translate-y-2 *:lg:before:bg-black *:lg:before:transition-all *:lg:before:duration-300 *:lg:before:ease-in-out"
+            class="lg:items-center font-nosifer lg:flex lg:text-base *:relative *:overflow-hidden *:lg:before:absolute *:lg:before:bottom-0 *:lg:before:left-0 *:lg:before:h-2 *:lg:before:w-full *:lg:before:translate-y-2 *:lg:before:bg-black *:lg:before:transition-all *:lg:before:duration-300 *:lg:before:ease-in-out"
           >
             <li class="mb-12 lg:mb-0 lg:px-10">
               <a href="/about">À propos</a>
