@@ -5,47 +5,56 @@ import LogoX from "../assets/icons/X.svg";
 import Logo from "../assets/icons/logo.svg";
 ---
 
-<footer
-  class="grid bg-black font-nosifer text-neutral-500 text-lg lg:flex lg:gap-12"
->
-  <span class="px-8"><Logo /></span>
-  <div class="mt-6 px-8">
-    <ul class="">
-      <li>
-        <a href="/a_propos" class="block py-6 hover:underline">À propos</a>
-      </li>
-      <li>
-        <a href="/faq" class="block py-6 hover:underline">FAQ</a>
-      </li>
-      <li>
-        <a href="/contact" class="block py-6 hover:underline">Contact</a>
-      </li>
-      <li>
-        <a href="/cgv_cgu" class="block py-6 hover:underline">CGV et CGU</a>
-      </li>
-      <li>
-        <a href="/mentions_legales" class="block py-6 hover:underline"
-          >Mentions légales & politique de confidentialité</a
-        >
-      </li>
-      <li>
-        <a href="/suivez_nous" class="block py-6 hover:underline">Suivez-nous</a
-        >
-      </li>
-    </ul>
+<footer class="bg-black font-nosifer text-neutral-500 text-lg mt-20">
+  <div class="px-8 pt-10">
+    <div class="mb-10 flex">
+      <Logo class="lg:scale-150" />
+    </div>
 
-    <ul class="flex gap-5 mt-4 mb-7">
-      <a href="https://facebook.com" aria-label="Visitez notre page facebook">
-        <LogoFacebook />
-      </a>
-      <a href="https://instagram.com" aria-label="Visitez notre page instagram">
-        <LogoInstagram />
-      </a>
-      <a href="https://x.com" aria-label="Visitez notre page X">
-        <LogoX />
-      </a>
-    </ul>
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:ml-30">
+      <ul class="space-y-4">
+        <li><a href="/a_propos" class="hover:underline">À propos</a></li>
+        <li><a href="/faq" class="hover:underline">FAQ</a></li>
+      </ul>
+
+      <ul class="space-y-4">
+        <li><a href="/contact" class="hover:underline">Contact</a></li>
+        <li><a href="/cgv_cgu" class="hover:underline">CGV et CGU</a></li>
+      </ul>
+
+      <ul class="space-y-4">
+        <li>
+          <a href="/mentions_legales" class="hover:underline">
+            Mentions légales & politique de confidentialité
+          </a>
+        </li>
+        <li><span class="text-neutral-400">Suivez-nous</span></li>
+        <li>
+          <div class="flex gap-5 mt-2">
+            <a
+              href="https://facebook.com"
+              aria-label="Visitez notre page Facebook"
+            >
+              <LogoFacebook />
+            </a>
+            <a
+              href="https://instagram.com"
+              aria-label="Visitez notre page Instagram"
+            >
+              <LogoInstagram />
+            </a>
+            <a href="https://x.com" aria-label="Visitez notre page X (Twitter)">
+              <LogoX />
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="h-0.5 w-full bg-white opacity-20 mt-10"></div>
+
+    <p class="text-white/20 text-sm text-center py-6">
+      © MMI Montbéliard, ALL RIGHTS RESERVED
+    </p>
   </div>
-  <div class="h-0.25 w-full bg-white"></div>
-<p class="text-white/20 text-sm my-10 text-center w-full block">© MMI Montbéliard, all rights reserved</p>
 </footer>
