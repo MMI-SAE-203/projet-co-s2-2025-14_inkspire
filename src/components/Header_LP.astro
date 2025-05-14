@@ -22,59 +22,52 @@ import GoutteDroite from "../assets/img/gouttes_droites_lp.webp";
     />
   </div>
 
-  <div
-    class="flex items-center justify-between px-6 not-lg:pt-6 lg:px-36 lg:gap-5"
-  >
+  <div class="flex items-center justify-between px-6 py-4 lg:px-36 lg:py-6">
     <a href="/">
       <Logo class="lg:scale-150" />
     </a>
 
-    <div>
-      <button
-        id="menu-btn"
-        class="group relative z-20 flex h-3 w-6 flex-col justify-between lg:hidden *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-white *:transition *:duration-300"
-        aria-label="Menu"
-        aria-controls="menu"
-        aria-expanded="false"
-      >
-        <span
-          class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"
-        ></span>
-        <span class="group-aria-expanded:opacity-0"></span>
-        <span
-          class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"
-        ></span>
-      </button>
+    <button
+      id="menu-btn"
+      class="group relative z-20 flex h-3 w-6 flex-col justify-between lg:hidden *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-white *:transition *:duration-300"
+      aria-label="Menu"
+      aria-controls="menu"
+      aria-expanded="false"
+    >
+      <span
+        class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"
+      ></span>
+      <span class="group-aria-expanded:opacity-0"></span>
+      <span
+        class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"
+      ></span>
+    </button>
 
-      <nav
-        id="menu"
-        class="fixed bg-black inset-0 text-white text-xl z-10 max-lg:aria-hidden:invisible visible lg:bg-transparent lg:relative lg:text-white lg:text-xl"
-        aria-hidden="true"
-      >
-        <div
-          class="flex flex-col not-lg:mt-20 lg:flex-row lg:items-center lg:justify-between lg:px-8 lg:mt-20"
-        >
-          <ul
-            class="lg:items-center font-nosifer lg:flex lg:text-base *:relative *:overflow-hidden *:lg:before:absolute *:lg:before:bottom-0 *:lg:before:left-0 *:lg:before:h-2 *:lg:before:w-full *:lg:before:translate-y-2 *:lg:before:bg-black *:lg:before:transition-all *:lg:before:duration-300 *:lg:before:ease-in-out"
+    <nav
+      id="menu"
+      class="fixed inset-0 bg-black text-white text-xl z-10 max-lg:aria-hidden:invisible visible lg:relative lg:bg-transparent lg:text-base"
+      aria-hidden="true"
+    >
+      <ul class="font-nosifer lg:flex lg:gap-12 not-lg:mt-20 not-lg:mx-8">
+        <li>
+          <a href="/a_propos" class="block py-4 px-4 hover:underline">À propos</a>
+        </li>
+        <li>
+          <a href="/faq" class="block py-4 px-4 hover:underline">FAQ</a>
+        </li>
+        <li>
+          <a href="/contact" class="block py-4 px-4 hover:underline">Contact</a>
+        </li>
+        <li>
+          <a href="/mentions_legales" class="block py-4 px-4 hover:underline"
+            >Mentions légales</a
           >
-            <li class="mb-12 lg:mb-0 lg:px-10">
-              <a href="/about">À propos</a>
-            </li>
-            <li class="mb-12 lg:mb-0 lg:px-10">
-              <a href="/faq">FAQ</a>
-            </li>
-            <li class="mb-12 lg:mb-0 lg:px-10">
-              <a href="/contact">Contact</a>
-            </li>
-            <li class="mb-12 lg:mb-0 lg:px-10">
-              <a href="/legales">Mentions légales</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
+
 <script>
   // On cible les éléments à modifier
   const toggle = document.querySelector("#menu-btn");
