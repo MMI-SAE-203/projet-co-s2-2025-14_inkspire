@@ -1,12 +1,13 @@
 ---
-import Layout_LP from "../../layouts/Layout_LP.astro";
-import ImgHeroAccueilLP from "../../assets/img/Hero-accueil.webp"
+import Layout from "../../layouts/Layout.astro";
+import ImgHeroGallerie from "../../assets/img/Hero-gallerie.webp";
 import { getTattoosByTheme, getThemeById } from "../../../backend/backend.mjs";
+import Button from "../../components/Button.astro";
 
 const { id } = Astro.params;
 
 if (!id) {
-  return Astro.redirect('/');
+  return Astro.redirect("/");
 }
 
 let theme;
@@ -16,101 +17,106 @@ try {
   theme = await getThemeById(id);
   tattoos = await getTattoosByTheme(id);
 } catch (error) {
-  console.error('Error loading theme or tattoos:', error);
-  return Astro.redirect('/');
+  console.error("Error loading theme or tattoos:", error);
+  return Astro.redirect("/");
 }
 ---
 
-<Layout_LP 
-  titre_page={`Tatouages - ${theme.nom}`}
-  img_hero={ImgHeroAccueilLP}
->
-  <section class="bg-black text-white py-12 px-4">
-    <!-- Header avec info du thème -->
+<Layout titre_page={`La Galerie du ${theme.nom}`} img_hero={ImgHeroGallerie}>
+  <p class="text-gray-500 font-semibold text-xs pb-12 text-center">
+    Voilà des tatouages qui pourraient vous inspirer.
+  </p>
+  <section class="pb-16 px-4">
     <div class="max-w-6xl mx-auto text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-4">
-        Tatouages <span class="text-blue-400">{theme.nom}</span>
-      </h1>
-      
-      {theme.description && (
-        <p class="text-gray-400 max-w-2xl mx-auto mb-6 text-lg">
-          {theme.description}
-        </p>
-      )}
-      
-      <div class="flex items-center justify-center gap-4 mb-8">
-        <a 
-          href="/" 
-          class="inline-flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors"
+      {
+        theme.description && (
+          <p class="text-gray-400 max-w-2xl mx-auto mb-6 text-lg leading-relaxed">
+            {theme.description}
+          </p>
+        )
+      }
+
+      <div class="flex flex-wrap justify-center items-center gap-4 mb-8">
+        <a
+          href="/exploration"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white text-sm rounded-full transition-colors shadow"
         >
           ← Retour aux thèmes
         </a>
-        <span class="text-gray-400">
-          {tattoos.length} tatouage{tattoos.length > 1 ? 's' : ''} trouvé{tattoos.length > 1 ? 's' : ''}
+        <span class="text-sm text-gray-400">
+          {tattoos.length} tatouage{tattoos.length > 1 ? "s" : ""} trouvé{
+            tattoos.length > 1 ? "s" : ""
+          }
         </span>
       </div>
     </div>
 
-    <!-- Grille des tatouages -->
-    {tattoos.length > 0 ? (
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {tattoos.map((tattoo) => (
-            <a href={`/tatouages/${tattoo.id}`} class="block">
-              <div class="bg-gray-800 rounded-xl overflow-hidden hover:scale-105 transition-transform cursor-pointer">
-                <img 
-                  src={tattoo.img}
-                  alt={tattoo.nom || 'Tatouage'}
-                  class="w-full h-48 object-cover"
-                />
-                <div class="p-4">
-                  {tattoo.nom && (
-                    <h3 class="text-white font-semibold mb-2">{tattoo.nom}</h3>
-                  )}
-                  {tattoo.description && (
-                    <p class="text-gray-400 text-sm line-clamp-2">{tattoo.description}</p>
-                  )}
-                  {tattoo.prix && (
-                    <p class="text-blue-400 font-bold mt-2">{tattoo.prix}€</p>
-                  )}
+    {
+      tattoos.length > 0 ? (
+        <div class="max-w-6xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {tattoos.map((tattoo) => (
+              <a href={`/tatouages/${tattoo.id}`} class="block group">
+                <div class="bg-gray-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:scale-[1.03] transition-all duration-300 cursor-pointer">
+                  <img
+                    src={tattoo.img}
+                    alt={tattoo.nom || "Tatouage"}
+                    class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div class="p-4">
+                    {tattoo.nom && (
+                      <h3 class="text-white font-semibold mb-2 p-0 text-lg truncate">
+                        {tattoo.nom}
+                      </h3>
+                    )}
+                    {tattoo.description && (
+                      <p class="text-gray-400 text-sm line-clamp-2 leading-snug">
+                        {tattoo.description}
+                      </p>
+                    )}
+                    {tattoo.prix && (
+                      <p class="text-blue-400 font-bold mt-3">{tattoo.prix}€</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </a>
-          ))}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
-    ) : (
-      <div class="text-center py-12">
-        <div class="text-6xl mb-4">🎨</div>
-        <h3 class="text-2xl font-bold mb-2">Aucun tatouage trouvé</h3>
-        <p class="text-gray-400 mb-6">
-          Il n'y a pas encore de tatouages pour ce thème.
-        </p>
-        <a 
-          href="/" 
-          class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
-        >
-          Explorer d'autres thèmes
-        </a>
-      </div>
-    )}
+      ) : (
+        <div class="text-center py-16">
+          <div class="text-6xl mb-4">🎨</div>
+          <h3 class="text-2xl font-bold text-white mb-2">
+            Aucun tatouage trouvé
+          </h3>
+          <p class="text-gray-400 mb-6">
+            Il n'y a pas encore de tatouages pour ce thème.
+          </p>
+          <a
+            href="/"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors"
+          >
+            Explorer d'autres thèmes
+          </a>
+        </div>
+      )
+    }
   </section>
 
-  <!-- Section CTA -->
-  <section class="bg-gray-900 py-12 px-4">
+  <section class=" px-4">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-white mb-4">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
         Vous avez trouvé votre style ?
       </h2>
-      <p class="text-gray-400 mb-8">
+      <p class="text-gray-400 mb-8 text-lg">
         Utilisez notre IA pour créer le tatouage parfait dans ce style !
       </p>
-      <button class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors">
-        Créer mon tatouage IA
-      </button>
+      <div class="flex justify-center">
+        <Button variant="plain" text="Créer mon tatouage" url="/ia" />
+      </div>
     </div>
   </section>
-</Layout_LP>
+</Layout>
 
 <style>
   .line-clamp-2 {
