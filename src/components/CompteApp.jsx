@@ -32,7 +32,7 @@ export default function CompteApp() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+      <div className="bg-gray-900 flex items-center justify-center">
         <div className="text-white">Chargement...</div>
       </div>
     );

@@ -20,7 +20,7 @@ export default function Compte({ user, onLogout }) {
   }, [user.id]);
 
   return (
-    <div className="min-h-screen bg-black text-white py-10 px-4">
+    <div className=" bg-black text-white py-10 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-10">
           <h1 className="text-3xl font-bold">Mon profil</h1>

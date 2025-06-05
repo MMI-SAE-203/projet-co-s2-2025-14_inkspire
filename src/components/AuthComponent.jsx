@@ -71,14 +71,14 @@ export default function AuthComponent({ onAuthSuccess }) {
   };
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
+    <div className="bg-black flex items-center justify-center p-4">
       <div className="w-full max-w-xs">
         {/* Logo */}
         <div className="text-center mb-8">
-          <h1 className="text-xl font-normal text-white mb-3">
+          <h2 className="text-white mb-3 mt-10">
             Connectez-vous
-          </h1>
-          <p className="text-gray-400 text-xs leading-relaxed">
+          </h2>
+          <p className="text-gray-400 leading-relaxed">
             Vous souhaitez commencer vos tatouages ?<br />
             Connectez-vous !
           </p>
