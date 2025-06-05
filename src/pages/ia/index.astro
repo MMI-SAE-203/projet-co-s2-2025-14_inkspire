@@ -1,12 +1,12 @@
 ---
 import App from "../../components/App.jsx";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
 import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro";
 ---
 
-<html>
-  <head><title>Generateur de Tatouage IA</title></head>
-  <body class="bg-black p-10">
-    <h1 class="text-3xl font-bold text-center mb-6">Tatouage par IA</h1>
-    <App client:load />
-  </body>
-</html>
+<Layout
+  titre_page="Générateur de Tatouage IA">
+      <App client:load />
+</Layout>
