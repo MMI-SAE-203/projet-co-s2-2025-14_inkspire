@@ -177,8 +177,8 @@ export default function TattooChat({ user, onLogout }) {
         </div>
       </div>
 
-      {/* Input */}
-      <div className="border-t border-gray-800 p-4 bg-gray-900 flex-shrink-0">
+      {/* Input - sticky to bottom */}
+      <div className="border-t border-gray-800 p-4 bg-gray-900 flex-shrink-0 sticky bottom-0 z-10">
         <div className="max-w-4xl mx-auto">
           <div className="flex gap-3">
             <input
