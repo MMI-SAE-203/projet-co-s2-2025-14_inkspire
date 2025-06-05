@@ -10,8 +10,8 @@ const themes = await getAllThemes();
 <Layout titre_page="Explorer les styles de tatouages" img_hero={ImgHero}>
   <section class="bg-black text-white px-4 text-center" x-data="{ search: '' }">
     <p class="text-gray-500 font-semibold text-xs lg:text-xl pb-8">
-      Découvre l’outil révolutionnaire qui t’aide à créer le tatouage parfait en
-      quelques clics ! Inspire-toi, personnalise ton design et laisse l’IA
+      Découvre l'outil révolutionnaire qui t'aide à créer le tatouage parfait en
+      quelques clics ! Inspire-toi, personnalise ton design et laisse l'IA
       générer un tatouage unique, rien que pour toi.
     </p>
 
@@ -44,8 +44,10 @@ const themes = await getAllThemes();
       {
         themes?.map((theme) => (
           <div
-            x-show="search === '' || theme.nom.toLowerCase().includes(search.toLowerCase())"
+            x-show="search === '' || $el.dataset.themeName.includes(search.toLowerCase())"
+            x-data={`{ themeName: '${theme.nom.toLowerCase()}' }`}
             class="transition-all duration-300 opacity-100 transform hover:scale-105"
+            data-theme-name={theme.nom.toLowerCase()}
           >
             <CardTheme {...theme} />
           </div>
