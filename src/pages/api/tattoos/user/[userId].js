@@ -54,3 +54,27 @@ export async function GET({ params }) {
     });
   }
 }
+
+export default async function handler(req, res) {
+  const { id } = req.query;
+
+  try {
+    const records = await pb.collection('tatouage_ia').getFullList({
+      filter: `utilisateur = "${id}"`,
+      sort: '-favoris,-created'
+    });
+
+    const tattoos = records.map(r => ({
+      id: r.id,
+      prompt: r.prompt,
+      favoris: r.favoris,
+      image: pb.files.getUrl(r, r.image),
+      created: r.created
+    }));
+
+    res.status(200).json({ success: true, tattoos });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ success: false, error: e.message });
+  }
+}

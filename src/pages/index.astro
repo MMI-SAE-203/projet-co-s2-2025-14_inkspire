@@ -2,16 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import HeroImg from "../assets/img/Hero-accueil.webp";
 import Button from "../components/Button.astro";
+
 import Buste from "../assets/img/Buste.webp";
 import { Image } from "astro:assets";
-import CardTheme from "../components/CardTheme.astro";
+
 import { getAllThemes } from "../../backend/backend.mjs";
+import CardTheme from "../components/CardTheme.astro";
 
 const themes = await getAllThemes();
-const slides = [
-  { type: "buste" },
-  ...themes.map((theme) => ({ type: "theme", data: theme })),
-];
 ---
 
 <Layout titre_page="Bienvenue sur Inkspire !" img_hero={HeroImg}>
@@ -27,64 +25,56 @@ const slides = [
   </section>
 
   <section
-    class="relative overflow-hidden max-w-4xl mx-auto min-h-[500px] px-4"
+    class="overflow-x-auto scroll-smooth snap-x snap-mandatory px-4 pb-16"
   >
-    <div
-      id="carousel-track"
-      class="flex transition-transform duration-500 ease-in-out w-full"
-      style="width: calc(100% * {slides.length});"
-    >
+    <div class="flex gap-8 w-max">
+      <div
+        class="w-64 flex-shrink-0 snap-start flex items-center justify-center"
+      >
+        <Image src={Buste} alt="Buste tatoué" class="w-40 h-auto" />
+      </div>
+
       {
-        slides.map((slide) => (
-          <div class="w-full flex-shrink-0 flex justify-center items-center">
-            {slide.type === "buste" ? (
-              <Image
-                src={Buste}
-                alt="Buste tatoué"
-                class="w-56 lg:w-96 h-auto"
-              />
-            ) : (
-              <section class="overflow-x-auto max-w-6xl mx-auto px-4 pb-16">
-                <div class="flex gap-6 w-max">
-                  {themes.map((theme) => (
-                    <div class="flex-shrink-0">
-                      <CardTheme {...theme} />
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
+        themes.map((theme) => (
+          <div class="flex-shrink-0 snap-start">
+            <CardTheme {...theme} />
           </div>
         ))
       }
     </div>
-
-    <!-- Flèches -->
-    <button
-      onclick="moveCarousel(-1)"
-      class="absolute left-0 top-1/2 transform -translate-y-1/2 text-white text-3xl px-4 z-10"
-    >
-      ‹
-    </button>
-    <button
-      onclick="moveCarousel(1)"
-      class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white text-3xl px-4 z-10"
-    >
-      ›
-    </button>
   </section>
-
-  <script is:inline>
-    let currentSlide = 0;
-    const track = document.getElementById("carousel-track");
-    const totalSlides = track.children.length;
-
-    function moveCarousel(direction) {
-      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-      const offset = -currentSlide * track.offsetWidth;
-      track.style.transform = `translateX(${offset}px)`;
-    }
-
-    window.addEventListener("resize", () => moveCarousel(0));
-  </script>
+  <div class="flex justify-center">
+    <Button variant="stroke" text="Vois tous les styles" url="/explorer" />
+  </div>
+  <h2 class="lg:text-4xl text-center mb-12 mt-20">
+    Un tatouage à ton image, en quelques secondes
+  </h2>
+  <ul class="list-disc pl-5 mx-11">
+    <li class="mb-4">
+      <p>Choisis un style préconçu ou décris ton tatouage</p>
+    </li>
+    <li class="mb-4">
+      <p>Ajoute des précisions pour une personnalisation optimale</p>
+    </li>
+    <li class="mb-4">
+      <p>Laisse l’IA générer ton design sur mesure</p>
+    </li>
+  </ul>
+  <div class="flex justify-center mt-10 mb-15">
+    <Button variant="stroke" text="Essayer maintenant" url="/ia" />
+  </div>
+  <h2 class="lg:text-4xl text-center">Galerie utilisateurs</h2>
+  <p class="mx-11 mb-4">
+    Tu veux conserver tes tatouages ? Crée ton compte maintenant pour ne jamais
+    les perdre !
+  </p>
+  <div class="flex justify-center mt-10 mb-15">
+    <Button variant="plain" text="Créer mon compte" url="/compte" />
+  </div>
+  <h2 class="lg:text-4xl text-center">
+    Des questions ? Nous avons les réponses !
+  </h2>
+  <div class="flex justify-center mt-4">
+    <Button variant="stroke" text="Accéder à la FAQ" url="/faq" />
+  </div>
 </Layout>
