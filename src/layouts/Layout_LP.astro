@@ -2,20 +2,31 @@
 import "../styles/global.css";
 
 import HeaderLP from "../components/Header_LP.astro";
+import Hero from "../components/Hero.astro";
 import FooterLP from "../components/Footer_LP.astro";
+
+const { ...item } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="fr">
   <head>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>
+      Simulateur de tatouage IA – Crée et visualise ton design | InkSpire
+    </title>
+    <meta
+      name="description"
+      content="Crée ton tatouage avec l’IA, visualise-le sur ta peau et choisis en toute confiance. Essaie gratuitement !"
+    />
   </head>
   <body>
     <HeaderLP />
+    <Hero item={{ titre: item.titre_page, img: item.img_hero }} />
     <slot />
     <FooterLP />
   </body>

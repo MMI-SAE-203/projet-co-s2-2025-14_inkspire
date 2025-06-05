@@ -1,0 +1,11 @@
+---
+const { item } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<div>
+    <div class="flex justify-center">
+        <Image src={item.img} alt="Image du Hero" class="w-60 h-auto pb-8 lg:w-120" />
+    </div>
+    <h1 class="text-center lg:text-5xl mb-3">{item.titre}</h1>
+</div>

@@ -1,0 +1,52 @@
+---
+import Layout_LP from "../../layouts/Layout_LP.astro";
+import ImgHeroAccueilLP from "../../assets/img/Hero-accueil.webp";
+import { getAllThemes } from "../../../backend/backend.mjs";
+import CardTheme from "../../components/CardTheme.astro";
+
+const themes = await getAllThemes();
+---
+
+<Layout_LP
+  titre_page="Envie d’un tatouage et tu ne sais pas par où commencer?"
+  img_hero={ImgHeroAccueilLP}
+>
+  <section
+    class="bg-black text-white py-12 px-4 text-center"
+    x-data="{ search: '' }"
+  >
+    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
+      Explorer les styles de <span class="block">tatouages</span>
+    </h2>
+
+    <p class="text-gray-400 max-w-lg mx-auto mb-6 text-sm md:text-base">
+      Explorer les styles de tatouages vous permet d’avoir un aperçu du style
+      que vous désirez, mais également de faciliter votre demande à notre IA !
+    </p>
+
+    <div class="relative max-w-sm mx-auto mb-10">
+      <input
+        type="text"
+        placeholder="Rechercher un style..."
+        class="w-full pl-10 pr-4 py-2 rounded-full bg-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        x-model="search"
+      />
+    </div>
+
+    <div
+      class="grid grid-cols-2 gap-2 justify-center"
+    >
+      {
+        themes?.map((theme) => (
+          <div
+            x-show="search === '' || theme.nom.toLowerCase().includes(search.toLowerCase())"
+            class="transition-all duration-300"
+          >
+            <CardTheme {...theme} />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout_LP
+>
