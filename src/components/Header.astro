@@ -1,0 +1,104 @@
+---
+import Logo from "../assets/icons/logo.svg";
+import { Image } from "astro:assets";
+
+import GoutteGauche from "../assets/img/gouttes_gauches_lp.webp";
+import GoutteDroite from "../assets/img/gouttes_droites_lp.webp";
+
+import Button from "./Button.astro";
+---
+
+<header class="relative w-full bg-black text-white z-20">
+  <div class="absolute top-0 left-0 z-10 hidden lg:block">
+    <Image
+      src={GoutteGauche}
+      alt="Goutte gauche qui coule sur le côté du header"
+      class="w-[131px] h-auto"
+    />
+  </div>
+  <div class="absolute top-0 right-0 z-10 hidden lg:block">
+    <Image
+      src={GoutteDroite}
+      alt="Goutte droite qui coule sur le côté du header"
+      class="w-[151px] h-auto"
+    />
+  </div>
+
+  <div class="flex items-center justify-between px-6 py-4 lg:px-36 lg:py-6">
+    <a href="/">
+      <Logo class="lg:scale-150" />
+    </a>
+
+    <button
+      id="menu-btn"
+      class="group relative z-20 flex h-3 w-6 flex-col justify-between lg:hidden *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-white *:transition *:duration-300"
+      aria-label="Menu"
+      aria-controls="menu"
+      aria-expanded="false"
+    >
+      <span
+        class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"
+      ></span>
+      <span class="group-aria-expanded:opacity-0"></span>
+      <span
+        class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"
+      ></span>
+    </button>
+
+    <nav
+      id="menu"
+      class="fixed inset-0 bg-black text-white text-xl z-10 max-lg:aria-hidden:invisible visible lg:relative lg:bg-transparent lg:text-base"
+      aria-hidden="true"
+    >
+      <ul class="font-nosifer lg:flex lg:gap-12 not-lg:mt-20 not-lg:mx-8">
+        <li>
+          <a href="/exploration" class="block py-4 px-4 hover:underline"
+            >Explorer les styles</a
+          >
+        </li>
+        <li>
+          <a href="/ia" class="block py-4 px-4 hover:underline"
+            >Acceder à l'ia</a
+          >
+        </li>
+        <li>
+          <a href="/a_propos" class="block py-4 px-4 hover:underline"
+            >À propos</a
+          >
+        </li>
+        <li>
+          <a href="/faq" class="block py-4 px-4 hover:underline">FAQ</a>
+        </li>
+        <li>
+          <a href="/contact" class="block py-4 px-4 hover:underline">Contact</a>
+        </li>
+        <li class="flex justify-center lg:justify-start my-4">
+          <Button variant="stroke" text="Se connecter" url="/connexion" />
+        </li>
+        <li class="flex justify-center lg:justify-start">
+          <Button variant="plain" text="Créer un compte" url="/connexion" />
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // On cible les éléments à modifier
+  const toggle = document.querySelector("#menu-btn");
+  const nav = document.querySelector("#menu");
+  const page = document.body;
+
+  // Vérifier si les éléments existent avant d'ajouter l'événement
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.ariaExpanded === "true";
+      const isClosed = !isOpen;
+      console.log(isOpen, isClosed);
+      // Mise à jour des attributs ARIA pour accessibilité
+      toggle.ariaExpanded = String(isClosed);
+      nav.ariaHidden = String(isOpen);
+      page.classList.toggle("noscroll", isClosed);
+    });
+  }
+</script>

@@ -11,7 +11,10 @@ const { ...item } = Astro.props;
 <!doctype html>
 <html lang="fr">
   <head>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -23,6 +26,28 @@ const { ...item } = Astro.props;
       name="description"
       content="Crée ton tatouage avec l’IA, visualise-le sur ta peau et choisis en toute confiance. Essaie gratuitement !"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "InkSpire",
+        "url": "https://inkspire.fr",
+        "description": "Génère ton tatouage avec l’IA et visualise-le sur ta peau grâce à InkSpire.",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Android, iOS, Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "EUR",
+          "description": "Accès gratuit aux fonctionnalités de base. Abonnement Premium disponible à 5€/mois."
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "125"
+        }
+      }
+    </script>
   </head>
   <body>
     <HeaderLP />

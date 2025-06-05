@@ -1,5 +1,5 @@
 ---
-import Layout_LP from "../../layouts/Layout_LP.astro";
+import Layout from "../../layouts/Layout.astro";
 import ImgHeroAccueilLP from "../../assets/img/Hero-accueil.webp";
 import { getAllThemes } from "../../../backend/backend.mjs";
 import CardTheme from "../../components/CardTheme.astro";
@@ -7,7 +7,7 @@ import CardTheme from "../../components/CardTheme.astro";
 const themes = await getAllThemes();
 ---
 
-<Layout_LP
+<Layout
   titre_page="Envie d’un tatouage et tu ne sais pas par où commencer?"
   img_hero={ImgHeroAccueilLP}
 >
@@ -48,5 +48,5 @@ const themes = await getAllThemes();
       }
     </div>
   </section>
-</Layout_LP
+</Layout
 >
