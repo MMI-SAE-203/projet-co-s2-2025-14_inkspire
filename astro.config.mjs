@@ -6,6 +6,10 @@ import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
+  experimental: {
+    session: true,
+    svg: true,
+  },
   output: 'server',
   adapter: netlify(),
   integrations:[react()],
@@ -17,8 +21,4 @@ export default defineConfig({
       }
     }
   },
-
-  experimental: {
-   svg: true,
- },
 });

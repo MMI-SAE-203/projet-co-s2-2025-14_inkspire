@@ -1,0 +1,34 @@
+import { c as createComponent, m as maybeRenderHead, r as renderComponent, e as renderScript, b as renderTemplate, a as createAstro, f as renderSlot, g as renderHead, d as addAttribute } from './astro/server_Es-WI7P7.mjs';
+import 'kleur/colors';
+/* empty css                         */
+import { L as Logo, G as GoutteGauche, a as GoutteDroite, b as LogoFacebook, c as LogoInstagram, d as LogoX, $ as $$Hero } from './Hero-accueil_Jro3QGrH.mjs';
+import '@astrojs/internal-helpers/path';
+import '@astrojs/internal-helpers/remote';
+import { $ as $$Image } from './_astro_assets_NJaCAblz.mjs';
+/* empty css                        */
+
+const $$HeaderLP = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${maybeRenderHead()}<header class="relative w-full bg-black text-white z-20"> <div class="absolute top-0 left-0 z-10 hidden lg:block"> ${renderComponent($$result, "Image", $$Image, { "src": GoutteGauche, "alt": "Goutte gauche qui coule sur le c\xF4t\xE9 du header", "class": "w-[131px] h-auto" })} </div> <div class="absolute top-0 right-0 z-10 hidden lg:block"> ${renderComponent($$result, "Image", $$Image, { "src": GoutteDroite, "alt": "Goutte droite qui coule sur le c\xF4t\xE9 du header", "class": "w-[151px] h-auto" })} </div> <div class="flex items-center justify-between px-6 py-4 lg:px-36 lg:py-6"> <a href="/"> ${renderComponent($$result, "Logo", Logo, { "class": "lg:scale-150" })} </a> <button id="menu-btn" class="group relative z-20 flex h-3 w-6 flex-col justify-between lg:hidden *:block *:ease *:h-0.5 *:w-full *:transform *:rounded-full *:bg-white *:transition *:duration-300" aria-label="Menu" aria-controls="menu" aria-expanded="false"> <span class="group-aria-expanded:translate-y-[5px] group-aria-expanded:rotate-45"></span> <span class="group-aria-expanded:opacity-0"></span> <span class="group-aria-expanded:-translate-y-[5px] group-aria-expanded:-rotate-45"></span> </button> <nav id="menu" class="fixed inset-0 bg-black text-white text-xl z-10 max-lg:aria-hidden:invisible visible lg:relative lg:bg-transparent lg:text-base" aria-hidden="true"> <ul class="font-nosifer lg:flex lg:gap-12 not-lg:mt-20 not-lg:mx-8"> <li> <a href="/a_propos" class="block py-4 px-4 hover:underline">À propos</a> </li> <li> <a href="/faq" class="block py-4 px-4 hover:underline">FAQ</a> </li> <li> <a href="/contact" class="block py-4 px-4 hover:underline">Contact</a> </li> <li> <a href="/mentions_legales" class="block py-4 px-4 hover:underline">Mentions légales</a> </li> </ul> </nav> </div> </header> ${renderScript($$result, "C:/Users/lacro/GitHub/projet-co-s2-2025-14_inkspire/src/components/Header_LP.astro?astro&type=script&index=0&lang.ts")}`;
+}, "C:/Users/lacro/GitHub/projet-co-s2-2025-14_inkspire/src/components/Header_LP.astro", void 0);
+
+const $$FooterLP = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${maybeRenderHead()}<footer class="bg-zinc-950 font-nosifer text-neutral-500 text-lg mt-20"> <div class="px-8 pt-10"> <div class="mb-10 flex"> ${renderComponent($$result, "Logo", Logo, { "class": "lg:scale-150" })} </div> <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:ml-30"> <ul class="space-y-4"> <li><a href="/a_propos" class="hover:underline">À propos</a></li> <li><a href="/faq" class="hover:underline">FAQ</a></li> </ul> <ul class="space-y-4"> <li><a href="/contact" class="hover:underline">Contact</a></li> <li><a href="/cgv_cgu" class="hover:underline">CGV et CGU</a></li> </ul> <ul class="space-y-4"> <li> <a href="/mentions_legales" class="hover:underline">
+Mentions légales & politique de confidentialité
+</a> </li> <li><span class="text-neutral-400">Suivez-nous</span></li> <li> <div class="flex gap-5 mt-2"> <a href="https://facebook.com" aria-label="Visitez notre page Facebook"> ${renderComponent($$result, "LogoFacebook", LogoFacebook, {})} </a> <a href="https://instagram.com" aria-label="Visitez notre page Instagram"> ${renderComponent($$result, "LogoInstagram", LogoInstagram, {})} </a> <a href="https://x.com" aria-label="Visitez notre page X (Twitter)"> ${renderComponent($$result, "LogoX", LogoX, {})} </a> </div> </li> </ul> </div> <div class="h-0.5 w-full bg-white opacity-20 mt-10"></div> <p class="text-white/20 text-sm text-center py-6">
+© MMI Montbéliard, ALL RIGHTS RESERVED
+</p> </div> </footer>`;
+}, "C:/Users/lacro/GitHub/projet-co-s2-2025-14_inkspire/src/components/Footer_LP.astro", void 0);
+
+var __freeze = Object.freeze;
+var __defProp = Object.defineProperty;
+var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
+var _a;
+const $$Astro = createAstro();
+const $$LayoutLP = createComponent(($$result, $$props, $$slots) => {
+  const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
+  Astro2.self = $$LayoutLP;
+  const { ...item } = Astro2.props;
+  return renderTemplate(_a || (_a = __template(['<html lang="fr" data-astro-cid-ztudjxk2> <head><script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"><\/script><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator"', '><title>\n      Simulateur de tatouage IA \u2013 Cr\xE9e et visualise ton design | InkSpire\n    </title><meta name="description" content="Cr\xE9e ton tatouage avec l\u2019IA, visualise-le sur ta peau et choisis en toute confiance. Essaie gratuitement !"><script type="application/ld+json">\n      {\n        "@context": "https://schema.org",\n        "@type": "WebApplication",\n        "name": "InkSpire",\n        "url": "https://inkspire.fr",\n        "description": "G\xE9n\xE8re ton tatouage avec l\u2019IA et visualise-le sur ta peau gr\xE2ce \xE0 InkSpire.",\n        "applicationCategory": "DesignApplication",\n        "operatingSystem": "Android, iOS, Web",\n        "offers": {\n          "@type": "Offer",\n          "price": "0.00",\n          "priceCurrency": "EUR",\n          "description": "Acc\xE8s gratuit aux fonctionnalit\xE9s de base. Abonnement Premium disponible \xE0 5\u20AC/mois."\n        },\n        "aggregateRating": {\n          "@type": "AggregateRating",\n          "ratingValue": "4.9",\n          "reviewCount": "125"\n        }\n      }\n    <\/script>', "</head> <body data-astro-cid-ztudjxk2> ", " ", " ", " ", " </body></html>"])), addAttribute(Astro2.generator, "content"), renderHead(), renderComponent($$result, "HeaderLP", $$HeaderLP, { "data-astro-cid-ztudjxk2": true }), renderComponent($$result, "Hero", $$Hero, { "item": { titre: item.titre_page, img: item.img_hero }, "data-astro-cid-ztudjxk2": true }), renderSlot($$result, $$slots["default"]), renderComponent($$result, "FooterLP", $$FooterLP, { "data-astro-cid-ztudjxk2": true }));
+}, "C:/Users/lacro/GitHub/projet-co-s2-2025-14_inkspire/src/layouts/Layout_LP.astro", void 0);
+
+export { $$LayoutLP as $ };
