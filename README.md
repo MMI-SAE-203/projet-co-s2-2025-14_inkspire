@@ -6,7 +6,7 @@
 
 - [ ] Nom du projet : Inkspire
 - [ ] URL de la landing page : https://projet-inkspire.netlify.app/landing_page
-- [ ] URL de l'application finale : 
+- [ ] URL de l'application finale : https://projet-inkspire.netlify.app
 - [ ] URL de connexion au back office : https://pocketbase.victor-landwerlin.fr/_/
 - [ ] Identifiant de connexion au backoffice : landwerlinvictor4@gmail.com
 - [ ] Mot de passe de connexion au backoffice : inkspire2025

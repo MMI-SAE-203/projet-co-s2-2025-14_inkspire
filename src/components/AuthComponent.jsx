@@ -72,34 +72,27 @@ export default function AuthComponent({ onAuthSuccess }) {
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center p-4">
-      <div className="w-full max-w-sm">
+      <div className="w-full max-w-xs">
         {/* Logo */}
-        <div className="text-center mb-12">
-          <div className="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-6 border border-gray-700">
-            <svg className="w-10 h-10 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-            </svg>
-          </div>
-          <h1 className="text-2xl font-semibold text-white mb-2">
-            {isLogin ? 'Connectez-vous' : 'Créer un compte'}
+        <div className="text-center mb-8">
+          <h1 className="text-xl font-normal text-white mb-3">
+            Connectez-vous
           </h1>
-          <p className="text-gray-400 text-sm leading-relaxed">
-            {isLogin 
-              ? 'Accédez à vos tatouages personnalisés' 
-              : 'Rejoignez la communauté des tatouages IA'
-            }
+          <p className="text-gray-400 text-xs leading-relaxed">
+            Vous souhaitez commencer vos tatouages ?<br />
+            Connectez-vous !
           </p>
         </div>
 
         {/* Formulaire */}
-        <div className="space-y-4">
+        <div className="space-y-3">
           {!isLogin && (
             <div>
               <input
                 type="text"
                 name="username"
                 placeholder="Nom d'utilisateur"
-                className="w-full p-4 bg-gray-900 text-white rounded-xl border border-gray-700 focus:border-white focus:outline-none transition-colors placeholder-gray-500"
+                className="w-full p-3 bg-gray-700 text-white rounded-lg border-0 focus:ring-1 focus:ring-gray-500 focus:outline-none transition-all placeholder-gray-400 text-sm"
                 value={formData.username}
                 onChange={handleInputChange}
                 required
@@ -111,8 +104,8 @@ export default function AuthComponent({ onAuthSuccess }) {
             <input
               type="email"
               name="email"
-              placeholder="Email"
-              className="w-full p-4 bg-gray-900 text-white rounded-xl border border-gray-700 focus:border-white focus:outline-none transition-colors placeholder-gray-500"
+              placeholder="E-mail (obligatoire)"
+              className="w-full p-3 bg-gray-700 text-white rounded-lg border-0 focus:ring-1 focus:ring-gray-500 focus:outline-none transition-all placeholder-gray-400 text-sm"
               value={formData.email}
               onChange={handleInputChange}
               required
@@ -124,7 +117,7 @@ export default function AuthComponent({ onAuthSuccess }) {
               type="password"
               name="password"
               placeholder="Mot de passe"
-              className="w-full p-4 bg-gray-900 text-white rounded-xl border border-gray-700 focus:border-white focus:outline-none transition-colors placeholder-gray-500"
+              className="w-full p-3 bg-gray-700 text-white rounded-lg border-0 focus:ring-1 focus:ring-gray-500 focus:outline-none transition-all placeholder-gray-400 text-sm"
               value={formData.password}
               onChange={handleInputChange}
               required
@@ -137,7 +130,7 @@ export default function AuthComponent({ onAuthSuccess }) {
                 type="password"
                 name="confirmPassword"
                 placeholder="Confirmer le mot de passe"
-                className="w-full p-4 bg-gray-900 text-white rounded-xl border border-gray-700 focus:border-white focus:outline-none transition-colors placeholder-gray-500"
+                className="w-full p-3 bg-gray-700 text-white rounded-lg border-0 focus:ring-1 focus:ring-gray-500 focus:outline-none transition-all placeholder-gray-400 text-sm"
                 value={formData.confirmPassword}
                 onChange={handleInputChange}
                 required
@@ -145,10 +138,16 @@ export default function AuthComponent({ onAuthSuccess }) {
             </div>
           )}
 
+          <div className="text-right mb-4">
+            <a href="#" className="text-gray-400 text-xs hover:text-white transition-colors">
+              Mot de passe oublié ?
+            </a>
+          </div>
+
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="w-full bg-gray-800 hover:bg-gray-700 text-white font-medium py-4 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 mt-6 border border-gray-700 hover:border-gray-600"
+            className="w-full bg-gray-700 hover:bg-gray-600 text-white font-normal py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 text-sm"
           >
             {loading 
               ? (isLogin ? 'Connexion...' : 'Inscription...') 
@@ -158,15 +157,18 @@ export default function AuthComponent({ onAuthSuccess }) {
         </div>
 
         {/* Toggle entre connexion/inscription */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-6">
+          <span className="text-gray-400 text-xs">
+            {isLogin ? "Pas encore de compte ? " : "Déjà un compte ? "}
+          </span>
           <button
             type="button"
             onClick={() => setIsLogin(!isLogin)}
-            className="text-gray-400 hover:text-white transition-colors text-sm underline underline-offset-4"
+            className="text-gray-300 hover:text-white transition-colors text-xs underline underline-offset-2"
           >
             {isLogin 
-              ? "création de compte" 
-              : "Déjà un compte ? Se connecter"
+              ? "Inscrivez-vous" 
+              : "Connectez-vous"
             }
           </button>
         </div>

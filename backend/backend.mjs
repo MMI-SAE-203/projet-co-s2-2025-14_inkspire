@@ -59,3 +59,20 @@ export async function getTattooById(tattooId) {
   }
 }
 
+export async function getTattooIAByUser(userId) {
+  try {
+    let records = await pb.collection('tatouage_ia').getFullList({
+      filter: `utilisateur = "${userId}"`
+    });
+    
+    records = records.map((record) => {
+      record.img = pb.files.getURL(record, record.image);
+      return record;
+    });
+    
+    return records;
+  } catch (error) {
+    console.error('Error fetching AI tattoos by user:', error);
+    throw error;
+  }
+}

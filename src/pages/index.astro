@@ -2,6 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import HeroImg from "../assets/img/Hero-accueil.webp";
 import Button from "../components/Button.astro";
+import Buste from "../assets/img/Buste.webp";
+import { Image } from "astro:assets";
+import CardTheme from "../components/CardTheme.astro";
+import { getAllThemes } from "../../backend/backend.mjs";
+
+const themes = await getAllThemes();
+const slides = [
+  { type: "buste" },
+  ...themes.map((theme) => ({ type: "theme", data: theme })),
+];
 ---
 
 <Layout titre_page="Bienvenue sur Inkspire !" img_hero={HeroImg}>
@@ -15,9 +25,66 @@ import Button from "../components/Button.astro";
       <Button variant="plain" text="Explorer les styles" url="/explorer" />
     </div>
   </section>
-  <section class="px-8">
-    <h2 class="text-center mb-12">
-      Trouve l’inspiration parmi des centaines de styles
-    </h2>
+
+  <section
+    class="relative overflow-hidden max-w-4xl mx-auto min-h-[500px] px-4"
+  >
+    <div
+      id="carousel-track"
+      class="flex transition-transform duration-500 ease-in-out w-full"
+      style="width: calc(100% * {slides.length});"
+    >
+      {
+        slides.map((slide) => (
+          <div class="w-full flex-shrink-0 flex justify-center items-center">
+            {slide.type === "buste" ? (
+              <Image
+                src={Buste}
+                alt="Buste tatoué"
+                class="w-56 lg:w-96 h-auto"
+              />
+            ) : (
+              <section class="overflow-x-auto max-w-6xl mx-auto px-4 pb-16">
+                <div class="flex gap-6 w-max">
+                  {themes.map((theme) => (
+                    <div class="flex-shrink-0">
+                      <CardTheme {...theme} />
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Flèches -->
+    <button
+      onclick="moveCarousel(-1)"
+      class="absolute left-0 top-1/2 transform -translate-y-1/2 text-white text-3xl px-4 z-10"
+    >
+      ‹
+    </button>
+    <button
+      onclick="moveCarousel(1)"
+      class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white text-3xl px-4 z-10"
+    >
+      ›
+    </button>
   </section>
+
+  <script is:inline>
+    let currentSlide = 0;
+    const track = document.getElementById("carousel-track");
+    const totalSlides = track.children.length;
+
+    function moveCarousel(direction) {
+      currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+      const offset = -currentSlide * track.offsetWidth;
+      track.style.transform = `translateX(${offset}px)`;
+    }
+
+    window.addEventListener("resize", () => moveCarousel(0));
+  </script>
 </Layout>
