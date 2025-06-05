@@ -1,0 +1,113 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import Button from "../../components/Button.astro";
+import HeroIMGAPropos from "../../assets/img/Hero-a-propos.webp";
+import Eva from "../../assets/img/Eva.webp";
+import Manolia from "../../assets/img/Manolia.webp";
+import Victor from "../../assets/img/Victor.webp";
+---
+
+<Layout titre_page="À Propos" img_hero={HeroIMGAPropos}>
+  <section class="text-center px-6 py-16 max-w-3xl mx-auto">
+    <h1 class="text-3xl md:text-4xl font-bold mb-2">Notre Mission & Vision</h1>
+    <p class="text-gray-400 text-sm">
+      Révolutionner la création de tatouages grâce à l’IA
+    </p>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-6 space-y-12 pb-24">
+    <!-- Mission -->
+    <div>
+      <h2 class="text-xl font-bold mb-4">
+        Révolutionner la création de tatouages avec l’IA
+      </h2>
+      <p class="text-gray-400 text-sm">
+        Chez Inkspire, on croit que chaque tatouage raconte une histoire unique.
+        Que tu sois passionné·e d’art corporel, novice ou curieux·se, notre IA
+        t’aide à explorer des styles, affiner tes idées et créer un design qui
+        te ressemble.
+      </p>
+    </div>
+
+    <!-- Pourquoi ? -->
+    <div>
+      <h3 class="font-semibold text-white mb-2">Pourquoi utiliser l’IA ?</h3>
+      <p class="text-gray-400 text-sm">
+        Elle pousse la créativité plus loin. Elle génère des visuels originaux à
+        partir de tes descriptions, tout en te laissant la main pour ajuster,
+        combiner et personnaliser.
+      </p>
+    </div>
+
+    <!-- Accessibilité -->
+    <div>
+      <h3 class="font-semibold text-white mb-2">Une plateforme pour tous</h3>
+      <p class="text-gray-400 text-sm">
+        - Pour les amateurs : inspire-toi et crée ton premier tattoo.<br />
+        - Pour les pros : construis ta bibliothèque de styles personnalisés.<br
+        />
+        - Pour les curieux : explore et visualise sans limites.
+      </p>
+    </div>
+
+    <!-- Équipe -->
+    <div>
+      <h2 class="text-xl font-bold mb-6 text-center">Notre équipe</h2>
+      <ul class="space-y-6">
+        <li class="flex items-center gap-4">
+          <Image
+            src={Manolia}
+            alt="Manolia"
+            class="w-14 h-14 rounded-full object-cover"
+          />
+
+          <div>
+            <p class="font-semibold">Maral Kocaoglu</p>
+            <p class="text-gray-400 text-sm">
+              Designer – Design du site, logo, UI
+            </p>
+          </div>
+        </li>
+        <li class="flex items-center gap-4">
+          <Image
+            src={Victor}
+            alt="Victor"
+            class="w-14 h-14 rounded-full object-cover"
+          />
+          <div>
+            <p class="font-semibold">Victor Landoulsi</p>
+            <p class="text-gray-400 text-sm">Développeur – Site web & IA</p>
+          </div>
+        </li>
+        <li class="flex items-center gap-4">
+          <Image
+            src={Eva}
+            alt="Eva"
+            class="w-14 h-14 rounded-full object-cover"
+          />
+          <div>
+            <p class="font-semibold">Eva Lacroix</p>
+            <p class="text-gray-400 text-sm">
+              Communication – Voix & identité du projet
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Engagement -->
+    <div class="text-center mt-16">
+      <h2 class="text-xl font-bold mb-4">Notre engagement</h2>
+      <p class="text-gray-400 text-sm mb-6">
+        Offrir une expérience intuitive, innovante et accessible. Inkspire te
+        permet d’explorer ton art corporel à ton rythme, avec ou sans tatoueur.
+      </p>
+
+      <div class="flex flex-col gap-4 items-center">
+        <Button variant="plain" text="Générer montatouage" url="/ia" />
+        <Button variant="stroke" text="Explorer les styles" url="/explorer" />
+      </div>
+    </div>
+  </section>
+</Layout>
