@@ -1,0 +1,94 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HeroLegal from "../../assets/img/Hero-droit.webp"; // Image spot avec point d'interrogation
+---
+
+<Layout titre_page="CGV et CGU" img_hero={HeroLegal}>
+  <section
+    class="max-w-3xl mx-auto px-6 py-12 text-gray-300 text-sm space-y-10"
+  >
+    <!-- CGV -->
+    <div>
+      <h2 class="text-xl font-bold text-white mb-4">CGV</h2>
+      <p class="mb-4">
+        Les présentes CGV définissent les conditions de vente des abonnements
+        Premium proposés sur Inkspire.
+      </p>
+
+      <h3 class="font-semibold text-white mt-6 mb-2">Tarifs et paiements</h3>
+      <p>
+        L’abonnement Premium permet d’accéder à plus de générations d’images.
+        Paiement possible sous deux formules :
+      </p>
+      <ul class="list-disc list-inside ml-4 mt-2">
+        <li>Paiement unique annuel</li>
+        <li>Paiement mensuel</li>
+      </ul>
+      <p class="mt-2">
+        Système de paiement utilisé : Stripe (CB, Apple Pay, Google Pay…)
+      </p>
+
+      <h3 class="font-semibold text-white mt-6 mb-2">Droit de rétractation</h3>
+      <p>
+        Conformément à l’article L221-28 du Code de la consommation, les
+        services numériques personnalisés ne sont pas soumis à un droit de
+        rétractation.
+      </p>
+
+      <h3 class="font-semibold text-white mt-6 mb-2">
+        Résiliation de l’abonnement
+      </h3>
+      <p>
+        L’utilisateur peut résilier son abonnement à tout moment depuis son
+        compte. Aucune facturation ne sera effectuée après la fin de la période
+        en cours.
+      </p>
+
+      <h3 class="font-semibold text-white mt-6 mb-2">Support et réclamation</h3>
+      <p>
+        Toute demande peut être envoyée à <strong>info@inkspire.com</strong>
+      </p>
+    </div>
+
+    <!-- CGU -->
+    <div>
+      <h2 class="text-xl font-bold text-white mb-4">CGU</h2>
+      <p class="mb-4">
+        Les présentes CGU définissent les règles d’utilisation du site et des
+        services proposés par Inkspire.
+      </p>
+
+      <h3 class="font-semibold text-white mt-6 mb-2">Accès au service</h3>
+      <p>
+        La création d’un compte est nécessaire pour accéder aux fonctionnalités
+        avancées. L’utilisateur s’engage à fournir des informations exactes et à
+        ne pas partager son compte.
+      </p>
+
+      <h3 class="font-semibold text-white mt-6 mb-2">
+        Responsabilité de l’utilisateur
+      </h3>
+      <p>
+        L’utilisateur est responsable des photos qu’il envoie à la plateforme.
+        Il s’engage à ne pas envoyer de contenus inappropriés ou illégaux.
+      </p>
+
+      <h3 class="font-semibold text-white mt-6 mb-2">
+        Propriété des tatouages générés
+      </h3>
+      <p>
+        Les images générées par l’IA sont la propriété de l’utilisateur. Leur
+        réutilisation à des fins commerciales sans personnalisation est
+        interdite.
+      </p>
+
+      <h3 class="font-semibold text-white mt-6 mb-2">
+        Suppression et modification des créations
+      </h3>
+      <p>
+        Les utilisateurs peuvent modifier ou supprimer leurs tatouages générés à
+        tout moment depuis leur espace.
+      </p>
+    </div>
+  </section>
+</Layout>
