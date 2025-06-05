@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 
 import GoutteGauche from "../assets/img/gouttes_gauches_lp.webp";
 import GoutteDroite from "../assets/img/gouttes_droites_lp.webp";
+import Lumiere from "../assets/img/lumiere.webp";
 
 import Button from "./Button.astro";
 ---
@@ -14,6 +15,14 @@ import Button from "./Button.astro";
       src={GoutteGauche}
       alt="Goutte gauche qui coule sur le côté du header"
       class="w-[131px] h-auto"
+    />
+  </div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 z-0 w-full flex justify-center pointer-events-none">
+    <Image
+      src={Lumiere}
+      alt="Effet de lumière en arrière-plan du header"
+      class="w-[400px] max-w-full h-auto"
+      style="margin-top: -60px;"
     />
   </div>
   <div class="absolute top-0 right-0 z-10 hidden lg:block">
