@@ -58,3 +58,4 @@ export async function getTattooById(tattooId) {
     throw error;
   }
 }
+
