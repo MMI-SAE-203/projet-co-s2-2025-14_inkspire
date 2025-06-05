@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroImg from "../assets/img/Hero-accueil.webp";
+import Button from "../components/Button.astro";
+---
+
+<Layout titre_page="Bienvenue sur Inkspire !" img_hero={HeroImg}>
+  <section class="text-center px-8 lg:px-64">
+    <p class="text-gray-500 font-semibold text-xs lg:text-xl pb-8">
+      Personnalise ton design, explore des styles et laisse l’IA générer ton
+      tatouage idéal.
+    </p>
+    <div class="flex flex-col items-center gap-4 mb-20">
+      <Button variant="stroke" text="Générer mon tatouage" url="/ia" />
+      <Button variant="plain" text="Explorer les styles" url="/explorer" />
+    </div>
+  </section>
+  <section class="px-8">
+    <h2 class="text-center mb-12">
+      Trouve l’inspiration parmi des centaines de styles
+    </h2>
+  </section>
+</Layout>
