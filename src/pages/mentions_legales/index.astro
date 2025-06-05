@@ -1,0 +1,112 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HeroMentions from "../../assets/img/Hero-droit.webp"; // Réutilise l’image spotlight
+---
+
+<Layout
+  titre_page="Mentions légales & politique de confidentialité"
+  img_hero={HeroMentions}
+>
+  <section
+    class="px-6 py-12 max-w-3xl mx-auto space-y-10 text-sm text-gray-300"
+  >
+    <!-- Éditeur du site -->
+    <div>
+      <h2 class="text-lg font-bold text-white mb-2">Éditeur du site</h2>
+      <p><strong>Nom :</strong> Inkspire</p>
+      <p><strong>Statut juridique :</strong> SAS</p>
+      <p>
+        <strong>Adresse :</strong> IUT de Montbéliard, 4 place Tharradin, 25200 Montbéliard
+        Cedex
+      </p>
+      <p><strong>Email :</strong> projetco@inkspire.com</p>
+      <p><strong>SIRET :</strong> 123 456 789 00010</p>
+    </div>
+
+    <!-- Hébergeur -->
+    <div>
+      <h2 class="text-lg font-bold text-white mb-2">Hébergeur</h2>
+      <p><strong>Nom :</strong> Netlify</p>
+      <p><strong>Site :</strong> www.netlify.com</p>
+    </div>
+
+    <!-- Responsable de la publication -->
+    <div>
+      <h2 class="text-lg font-bold text-white mb-2">
+        Responsable de la publication
+      </h2>
+      <p><strong>Nom :</strong> Landwerlin Victor</p>
+      <p><strong>Email :</strong> landwerlinvictor4@gmail.com</p>
+      <p class="mt-2">
+        Toute reproduction des contenus (textes, images, logos, etc.) est
+        interdite sans autorisation.
+      </p>
+    </div>
+
+    <!-- Responsabilité -->
+    <div>
+      <h2 class="text-lg font-bold text-white mb-2">Responsabilité</h2>
+      <p>
+        Inkspire ne peut être tenu responsable en cas de mauvaise utilisation
+        des designs générés par l’IA, ni des conséquences liées à leur
+        application.
+      </p>
+    </div>
+
+    <!-- Données personnelles -->
+    <div>
+      <h2 class="text-lg font-bold text-white mb-2">
+        Collecte des données personnelles
+      </h2>
+      <p>Nous collectons uniquement :</p>
+      <ul class="list-disc list-inside ml-4">
+        <li>
+          Les photos envoyées pour la génération de tatouages (supprimées après
+          30 jours).
+        </li>
+        <li>L’adresse email pour la création de compte ou d’abonnement.</li>
+        <li>
+          La localisation pour afficher les tatoueurs proches (si autorisée).
+        </li>
+      </ul>
+    </div>
+
+    <!-- Utilisation des données -->
+    <div>
+      <h2 class="text-lg font-bold text-white mb-2">Utilisation des données</h2>
+      <p>Les données sont utilisées uniquement pour :</p>
+      <ul class="list-disc list-inside ml-4">
+        <li>Personnaliser l’expérience utilisateur.</li>
+        <li>Générer des tatouages via l’IA.</li>
+        <li>Gérer les abonnements premium.</li>
+      </ul>
+      <p class="mt-2">Nous ne revendons ni ne partageons vos données.</p>
+    </div>
+
+    <!-- Sécurité -->
+    <div>
+      <h2 class="text-lg font-bold text-white mb-2">
+        Sécurité et conservation
+      </h2>
+      <p>
+        Les photos sont automatiquement supprimées après 30 jours. Vous pouvez
+        demander la suppression de vos données à tout moment via notre
+        formulaire de contact.
+      </p>
+    </div>
+
+    <!-- Vos droits -->
+    <div>
+      <h2 class="text-lg font-bold text-white mb-2">Vos droits</h2>
+      <p>Conformément au RGPD, vous pouvez :</p>
+      <ul class="list-disc list-inside ml-4">
+        <li>Accéder à vos données</li>
+        <li>Demander leur modification ou suppression</li>
+        <li>Retirer votre consentement à tout moment</li>
+      </ul>
+      <p class="mt-2">
+        Pour toute demande : <strong>projetco@inkspire.com</strong>
+      </p>
+    </div>
+  </section>
+</Layout>
