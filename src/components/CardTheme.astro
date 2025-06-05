@@ -2,13 +2,19 @@
 const { ...theme } = Astro.props;
 ---
 
-<a href={`/exploration/${theme.id}`} class="block">
-  <div class="bg-gray-700 rounded-xl p-4 w-36 text-center hover:scale-105 transition-transform cursor-pointer">
-    <img 
-      src={theme.img}
-      alt={theme.nom}
-      class="w-full h-auto mb-2 object-contain bg-white p-2 rounded"
-    />
-    <p class="text-white text-sm">{theme.nom}</p>
+<a href={`/exploration/${theme.id}`} class="block group">
+  <div
+    class="bg-gradient-to-br from-gray-800 to-gray-700 rounded-2xl p-4 w-40 text-center shadow-md hover:shadow-xl transition-all duration-300 ease-in-out transform group-hover:scale-105 cursor-pointer"
+  >
+    <div
+      class="bg-white p-1 rounded-xl overflow-hidden aspect-square flex items-center justify-center"
+    >
+      <img
+        src={theme.img}
+        alt={theme.nom}
+        class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105 rounded-xl"
+      />
+    </div>
+    <p class="text-white text-sm mt-3 font-medium truncate">{theme.nom}</p>
   </div>
 </a>
